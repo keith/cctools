@@ -33,6 +33,7 @@ OBJROOT = .
 OFILE_DIR = $(OBJROOT)
 VPATH = $(OFILE_DIR)
 SYMROOT = .
+RAW_DSTROOT ?= $(DSTROOT)
 
 BINDIR = /bin
 USRBINDIR = /usr/bin
@@ -358,9 +359,15 @@ dt_install:
 			  $(DSTROOT)$(USRBINDIR)/codesign_allocate
 	(cd $(DSTROOT)$(USRBINDIR); rm -f codesign_allocate-p; \
 		ln -s codesign_allocate codesign_allocate-p)
-	$(MKDIRS) $(RAW_DSTROOT)/usr/libexec/DeveloperTools
-	cp $(DSTROOT)$(USRBINDIR)/codesign_allocate \
-		$(RAW_DSTROOT)/usr/libexec/DeveloperTools
+	rcName=`echo $(RC_ProjectName)`; 				      \
+	if [ "$(RC_MACOS)" != "" -o "$(RC_XCODE)" != "" ] &&		      \
+	   [ "$$rcName" != "cctools_Fall2018" ];			      \
+	then                                                                  \
+	    $(MKDIRS) $(RAW_DSTROOT)/usr/libexec/DeveloperTools;              \
+	    rm -f $(RAW_DSTROOT)/usr/libexec/DeveloperTools/codesign_allocate;\
+	    cp $(DSTROOT)$(USRBINDIR)/codesign_allocate                       \
+		$(RAW_DSTROOT)/usr/libexec/DeveloperTools;                    \
+	fi
 	install -c -s -m 555 $(SYMROOT)/ctf_insert.NEW \
 			  $(DSTROOT)$(USRBINDIR)/ctf_insert
 	install -c -s -m 555 $(SYMROOT)/bitcode_strip.NEW \

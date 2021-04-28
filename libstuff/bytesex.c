@@ -2385,6 +2385,16 @@ enum byte_sex target_byte_sex)
 	cpu->__cpsr = SWAP_INT(cpu->__cpsr);
 }
 
+void
+swap_arm_exception_state64_t(
+arm_exception_state64_t *except,
+enum byte_sex target_byte_sex)
+{
+	except->__far = SWAP_LONG_LONG(except->__far);
+	except->__esr = SWAP_INT(except->__esr);
+	except->__exception = SWAP_INT(except->__exception);
+}
+
 __private_extern__
 void
 swap_ident_command(
@@ -2963,7 +2973,7 @@ enum byte_sex target_byte_sex)
 	    mods[i].objc_module_info_addr =
 				  SWAP_LONG_LONG(mods[i].objc_module_info_addr);
 	    mods[i].objc_module_info_size =
-				  SWAP_LONG_LONG(mods[i].objc_module_info_size);
+				  SWAP_INT(mods[i].objc_module_info_size);
 	}
 }
 
