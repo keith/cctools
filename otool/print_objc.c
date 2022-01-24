@@ -38,6 +38,13 @@
 #include "dyld_bind_info.h"
 #include "ofile_print.h"
 
+// https://github.com/apple-oss-distributions/objc4/blob/62b60ba0e56440e265ca576cc9f197e9af54c1bd/runtime/runtime.h#L1887-L1893
+#define CLS_GETINFO(cls,infomask)        ((cls)->info & (infomask))
+// class is not a metaclass
+#define CLS_CLASS               0x1
+// class is a metaclass
+#define CLS_META                0x2
+
 /*
  * Here we need structures that have the same memory layout and size as the
  * 32-bit Objective-C 1 meta data structures.

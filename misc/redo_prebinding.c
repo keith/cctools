@@ -106,7 +106,7 @@
 #import <stuff/hppa.h>
 #import <stuff/execute.h>
 #import <stuff/guess_short_name.h>
-//#import <stuff/seg_addr_table.h>
+#import <stuff/seg_addr_table.h>
 #import <stuff/macosx_deployment_target.h>
 
 #include <mach-o/dyld.h>
@@ -918,7 +918,7 @@ char *envp[])
                 if(write_to_stdout)
                     output_file = NULL;
 		writeout(archs, narchs, output_file, mode, TRUE, FALSE, FALSE,
-		         FALSE, NULL);
+		         FALSE, TRUE, NULL);
 		if(errors){
                     if(write_to_stdout == FALSE)
                         unlink(output_file);
@@ -928,7 +928,7 @@ char *envp[])
 	    else{
 		output_file = makestr(input_file, ".redo_prebinding", NULL);
 		writeout(archs, narchs, output_file, mode, TRUE, FALSE, FALSE,
-			 FALSE, NULL);
+			 FALSE, TRUE, NULL);
 		if(errors){
 		    unlink(output_file);
 		    return(2);

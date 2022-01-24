@@ -206,6 +206,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		C2AB0919279F264100694595 /* seg_addr_table.c in Sources */ = {isa = PBXBuildFile; fileRef = DE095FEC21CC1ABB00C4ADA1 /* seg_addr_table.c */; };
+		C2AB091A279F269E00694595 /* dylib_table.c in Sources */ = {isa = PBXBuildFile; fileRef = DE095FD721CC1ABB00C4ADA1 /* dylib_table.c */; };
 		DE000B3B21CDBA79000CEC53 /* arch.c in Sources */ = {isa = PBXBuildFile; fileRef = DE095F6B21CC1ABB00C4ADA1 /* arch.c */; };
 		DE000B3C21CDBA79000CEC53 /* get_end.c in Sources */ = {isa = PBXBuildFile; fileRef = DE095F6C21CC1ABB00C4ADA1 /* get_end.c */; };
 		DE000B3D21CDBA79000CEC53 /* getsecbyname.c in Sources */ = {isa = PBXBuildFile; fileRef = DE095F7321CC1ABB00C4ADA1 /* getsecbyname.c */; };
@@ -5306,6 +5308,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE09615721CC2BEC00C4ADA1 /* swap_headers.c in Sources */,
+				C2AB0919279F264100694595 /* seg_addr_table.c in Sources */,
 				DE09615421CC2BEC00C4ADA1 /* rnd.c in Sources */,
 				DE09614A21CC2BEC00C4ADA1 /* hash_string.c in Sources */,
 				DE09613921CC2BEC00C4ADA1 /* arch_usage.c in Sources */,
@@ -5321,6 +5324,7 @@
 				DE09614921CC2BEC00C4ADA1 /* guess_short_name.c in Sources */,
 				DE09615221CC2BEC00C4ADA1 /* print.c in Sources */,
 				DEEE93762453A6F500ADCA3D /* xcode.c in Sources */,
+				C2AB091A279F269E00694595 /* dylib_table.c in Sources */,
 				DE09614321CC2BEC00C4ADA1 /* errors.c in Sources */,
 				DE09614521CC2BEC00C4ADA1 /* fatal_arch.c in Sources */,
 				DE09615C21CC2BEC00C4ADA1 /* vm_flush_cache.c in Sources */,
