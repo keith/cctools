@@ -1753,26 +1753,27 @@ ranlib_fat_error:
 
 	// if any -ref args are used in -static mode, build extra .o file that lists them
 	if((cmd_flags.nreflibs != 0) || (cmd_flags.nreffw != 0)){
-	    if(cmd_flags.dynamic == FALSE){
-		// make a .o file for each arch in the output file
-		for(int i=0; i < narchs; ++i){
-		    char extraFilePath[PATH_MAX];
-		    make_obj_file_with_linker_options(archs[i].arch_flag.cputype, archs[i].arch_flag.cpusubtype,
-						       cmd_flags.nreflibs, cmd_flags.reflibs,
-						       cmd_flags.nreffw, cmd_flags.reffw,
-						       extraFilePath);
-		    void* dummyArchs[1];
-		    uint32_t dummynarchs = 0;
-		    struct ofile* extraObj = breakout(extraFilePath, dummyArchs, &dummynarchs, FALSE);
-		    extraObj->file_name        = ALWAYS_LOAD_MEMBER_NAME;
-		    extraObj->member_name      = extraObj->file_name;
-		    extraObj->member_name_size = 15;
-		    extraObj->member_size      = (uint32_t)extraObj->file_size;
-		    extraObj->member_type      = OFILE_Mach_O;
-		    add_member(extraObj);
-		    unlink(extraFilePath);
-		}
-	    }
+	    system_fatal("unsupported codepath because of dyld lib, keith made this choice for now");
+//	    if(cmd_flags.dynamic == FALSE){
+//		// make a .o file for each arch in the output file
+//		for(int i=0; i < narchs; ++i){
+//		    char extraFilePath[PATH_MAX];
+//		    make_obj_file_with_linker_options(archs[i].arch_flag.cputype, archs[i].arch_flag.cpusubtype,
+//						       cmd_flags.nreflibs, cmd_flags.reflibs,
+//						       cmd_flags.nreffw, cmd_flags.reffw,
+//						       extraFilePath);
+//		    void* dummyArchs[1];
+//		    uint32_t dummynarchs = 0;
+//		    struct ofile* extraObj = breakout(extraFilePath, dummyArchs, &dummynarchs, FALSE);
+//		    extraObj->file_name        = ALWAYS_LOAD_MEMBER_NAME;
+//		    extraObj->member_name      = extraObj->file_name;
+//		    extraObj->member_name_size = 15;
+//		    extraObj->member_size      = (uint32_t)extraObj->file_size;
+//		    extraObj->member_type      = OFILE_Mach_O;
+//		    add_member(extraObj);
+//		    unlink(extraFilePath);
+//		}
+//	    }
 	}
 
 
