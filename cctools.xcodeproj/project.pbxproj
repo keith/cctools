@@ -4928,9 +4928,7 @@
 				OTHER_LDFLAGS = (
 					"${inherited}",
 					"-L${TOOLCHAIN_DIR}/usr/local/lib",
-					"-lcctoolshelper",
 					"-lc++",
-					"-lCrashReporterClient",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
@@ -4992,9 +4990,7 @@
 				OTHER_LDFLAGS = (
 					"${inherited}",
 					"-L${TOOLCHAIN_DIR}/usr/local/lib",
-					"-lcctoolshelper",
 					"-lc++",
-					"-lCrashReporterClient",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
